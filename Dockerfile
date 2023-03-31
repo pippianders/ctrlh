@@ -7,10 +7,10 @@ RUN pip install -r /requirements.txt
 FROM base
 COPY --from=builder /install /usr/local
 RUN true
-COPY findandreplace.py /app/findandreplace.py
+COPY ctrlh.py /app/ctrlh.py
 WORKDIR /app
 RUN apk add --no-cache \
     git \
     openssh
 RUN export GIT_PYTHON_REFRESH=quiet
-CMD ["python", "findandreplace.py"]
+CMD ["python", "ctrlh.py"]
